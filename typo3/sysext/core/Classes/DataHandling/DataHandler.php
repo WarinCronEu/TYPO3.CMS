@@ -3222,8 +3222,11 @@ class DataHandler implements LoggerAwareInterface
                         if (!is_array($dataValues_current[$key]['el'])) {
                             $dataValues_current[$key]['el'] = [];
                         }
+
                         $theKey = key($el);
-                        if (!is_array($dataValues[$key]['el'][$ik][$theKey]['el'])) {
+
+                        if (!isset($dataValues[$key]['el'][$ik][$theKey]['el'])
+                            || !is_array($dataValues[$key]['el'][$ik][$theKey]['el'])) {
                             continue;
                         }
 
